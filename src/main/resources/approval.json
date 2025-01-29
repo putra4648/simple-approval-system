@@ -1,0 +1,12 @@
+[
+  {
+    "id": "spv1",
+    "name": "Supervisor 1",
+    "role": "SUPERVISOR"
+  },
+  {
+    "id": "manager1",
+    "name": "Manager 1",
+    "role": "MANAGER"
+  }
+]
