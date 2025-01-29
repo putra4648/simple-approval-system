@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"
+      layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Main</title>
+</head>
+<body>
+<h1>Hello welcome back, <span sec:authentication="name">Hello, user!</span></h1>
+<div layout:fragment="content">
+    <p th:if="${message}" th:text="${message}"></p>
+    <form action="#" method="post" th:action="@{/item}" th:object="${item}">
+        <label class="form-label" for="name">Request Item</label>
+        <input class="form-control" th:field="*{name}" type="text">
+        <label class="form-label" for="due_date">Due Date</label>
+        <input class="form-control" th:field="*{due_date}" type="date">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
