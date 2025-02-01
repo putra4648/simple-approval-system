@@ -21,8 +21,11 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(request -> request.anyRequest().authenticated());
+        http.authorizeHttpRequests(request -> request.requestMatchers("/static/**").permitAll()
+                .requestMatchers("/item/approve").hasAnyRole("SUPERVISOR", "MANAGER")
+                .anyRequest().authenticated());
         http.formLogin(Customizer.withDefaults());
+        http.exceptionHandling(Customizer.withDefaults());
         return http.build();
     }
 
@@ -31,7 +34,7 @@ public class WebSecurityConfig {
     UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails user = User.builder().username("user").password(passwordEncoder.encode("user123")).roles("USER").build();
         UserDetails supervisor = User.builder().username("admin").password(passwordEncoder.encode("admin123")).roles("SUPERVISOR").build();
-        UserDetails manager = User.builder().username("manager").password(passwordEncoder.encode("manager")).roles("MANAGER").build();
+        UserDetails manager = User.builder().username("manager").password(passwordEncoder.encode("manager123")).roles("MANAGER").build();
 
         return new InMemoryUserDetailsManager(user, supervisor, manager);
     }

@@ -1,5 +1,6 @@
 package id.putra.simpleapprovalsystem.request;
 
+import id.putra.simpleapprovalsystem.constant.Actions;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,4 +12,6 @@ public class ItemRequest {
     private String name;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date due_date;
+    private Actions actions;
+
 }

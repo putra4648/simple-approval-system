@@ -6,5 +6,6 @@ import lombok.Data;
 public class ApprovalDto {
     private String id;
     private String name;
-    private String role;
+    private int level;
+    private Boolean isApproved;
 }

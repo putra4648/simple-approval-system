@@ -1,12 +1,14 @@
 [
   {
     "id": "spv1",
-    "name": "Supervisor 1",
+    "name": "admin",
+    "level": 1,
     "role": "SUPERVISOR"
   },
   {
     "id": "manager1",
-    "name": "Manager 1",
+    "name": "manager",
+    "level": 2,
     "role": "MANAGER"
   }
 ]
